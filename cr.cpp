@@ -1,6 +1,6 @@
 #include <iostream>
-#include <iterator>
 #include <set>
+#include <iterator>
 
 using namespace std;
 
@@ -15,7 +15,7 @@ public:
     }
 };
 
-class Compare{
+class Compare {
 public:
     bool operator()(const Point p1, const Point p2) {
         if (p1.x == p2.x) return p1.y < p2.y;
@@ -26,8 +26,8 @@ public:
 int count_rect(set<Point, Compare> s) {
     int ans = 0;
 
-    for (auto it = s.begin(); it!=prev(s.end()); it++) {
-        for (auto jt = next(it); jt!=s.end(); jt++) {
+    for (auto it = s.begin(); it != prev(s.end()); it++) {
+        for (auto jt = next(it); jt != s.end(); jt++) {
             Point p1 = *it;
             Point p2 = *jt;
 
@@ -50,20 +50,15 @@ int main(void) {
 
     int N;
     cin >> N;
+
     for (int i = 0; i < N; i++) {
         int x, y;
         cin >> x >> y;
-
         Point p(x, y);
         s.insert(p);
     }
 
-    cout << "No. of rectangles: " << count_rect(s) << endl;
-
-    // cout << "The points: " << endl;
-    // for (auto it = s.begin(); it!=s.end(); it++) {
-    //     cout << it->x << " " << it->y << endl;
-    // }
+    cout << "No. of Rectangles: " << count_rect(s) << endl;
 
 
     return 0;
